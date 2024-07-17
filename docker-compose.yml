@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped  # <- Add restart option here
 
   app:
     build: .
@@ -23,6 +24,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: Kadomazim@89
     ports:
       - "8080:8080"
+    restart: unless-stopped  # <- Add restart option here
 
 volumes:
   postgres_data:
